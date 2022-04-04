@@ -1,8 +1,6 @@
 # ESOF322_PlaylistMixer
 
-Trey Thompson
-Brady Underwood
-Abby Quinn
+Trey Thompson, Brady Underwood, Abby Quinn
 
 Playlist mixer 
 
