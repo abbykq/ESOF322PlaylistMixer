@@ -2,7 +2,7 @@ public class song {
     //Stores title, genre, and artist to be stored in playlist
     private final String title, artist, genre;
 
-    song(String t, String a,String g){
+    song(String t, String a, String g){
         title = t;
         artist = a;
         genre = g;
