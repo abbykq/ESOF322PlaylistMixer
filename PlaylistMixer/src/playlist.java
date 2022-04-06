@@ -1,3 +1,3 @@
 public abstract class playlist {
-    //Abstract
+    //Contains methods and attributes used in all playlist subclasses
 }
