@@ -4,4 +4,7 @@ public class genrePlaylist extends playlist{
     //Another another comment
     //Another another another comment
     
+    public String getInfo(){
+        return "";
+    }
 }
