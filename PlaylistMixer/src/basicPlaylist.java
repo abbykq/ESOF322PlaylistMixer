@@ -1,3 +1,3 @@
 public class basicPlaylist extends playlist{
-    //Added another comment
+    //This is a playlist that contains a mix of artists and genres
 }

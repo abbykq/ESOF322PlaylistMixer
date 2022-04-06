@@ -1,3 +1,3 @@
 public class artistPlaylist extends playlist{
-//Added a comment
+    //This is a playlist that only contains one artist 
 }
