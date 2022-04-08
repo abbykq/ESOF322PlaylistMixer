@@ -27,9 +27,10 @@ public abstract class playlist {
         for(song Song: songList){
             if (Song.getTitle().equals(songName)){
                 songQueue.add(Song);
-                break;
+                return;
             }
         }
+        System.out.println("ERROR: Didn't find song");
     }
 
     public void togglePlayPause(){
