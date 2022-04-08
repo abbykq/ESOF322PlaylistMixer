@@ -1,4 +1,4 @@
-public class artistPlaylist extends playlist{
+public class artistPlaylist extends Playlist {
     //This is a playlist that only contains one artist 
     private final String artist;
 

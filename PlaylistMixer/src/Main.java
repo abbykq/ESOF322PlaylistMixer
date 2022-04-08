@@ -24,7 +24,6 @@ public class Main {
             // TODO add if selection = "a"...
         }while(selection != "e");
 
-        input.close();
     }
 
 }

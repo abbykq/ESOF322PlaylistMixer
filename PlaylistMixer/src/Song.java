@@ -1,9 +1,9 @@
-public class song {
+public class Song {
     //Holds title, genre, and artist to be stored in playlist
 
     private final String title, artist, genre;
 
-    song(String t, String a, String g){
+    Song(String t, String a, String g){
         title = t;
         artist = a;
         genre = g;

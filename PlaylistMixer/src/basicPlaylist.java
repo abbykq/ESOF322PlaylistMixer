@@ -1,4 +1,4 @@
-public class basicPlaylist extends playlist{
+public class basicPlaylist extends Playlist {
     //This playlist that has a mix of artists and genres
     
     @Override

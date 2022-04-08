@@ -1,4 +1,4 @@
-public class genrePlaylist extends playlist{
+public class genrePlaylist extends Playlist {
     //This is a playlist that only contains one genre 
     private final String genre;
 
