@@ -25,7 +25,7 @@ public abstract class playlist {
     public void queueSong(String songName){
         //Find song that matches songName and adds to Queue
         for(song Song: songList){
-            if (Song.getTitle() == songName){
+            if (Song.getTitle().equals(songName)){
                 songQueue.add(Song);
                 break;
             }
