@@ -1,8 +1,6 @@
 import java.util.Queue;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public abstract class playlist {
     //Contains methods and attributes used in all playlist subclasses
@@ -10,18 +8,32 @@ public abstract class playlist {
     private final ArrayList<song> songList = new ArrayList<song>();
 
     private song currentSong;
+
     private boolean isPlaying;
 
     public void addSong(song s){
-        // Trey 
+        if(songList.contains(s)){
+            System.out.println("The song is already in the playlist");
+        }
+        else{
+            songList.add(s);
+        }
+        
     }
 
     public void removeSong(song s){
-        // Trey
+        if(songList.contains(s)){
+            songList.remove(s);
+        }
+        else{
+            System.out.println("This song is not in this playlist");
+        }
     }
     
     public void playSong(String songName){
-        // Trey
+        for(int i = 0; i < songList.size(); i++){
+            
+        }
     }
 
     public void queueSong(String songName){
@@ -29,10 +41,9 @@ public abstract class playlist {
         for(song Song: songList){
             if (Song.getTitle().equals(songName)){
                 songQueue.add(Song);
-                return;
+                break;
             }
         }
-        System.out.println("ERROR: Didn't find song to queue");
     }
 
     public void togglePlayPause(){
@@ -40,26 +51,11 @@ public abstract class playlist {
     }
 
     public void skip(){
-        songQueue.remove();
 
-        //If there isn't another item in queue then stop
-        if(songQueue.peek() == null){
-            isPlaying = false;
-            return;
-        }else
-            currentSong = songQueue.peek();
     }
 
     public void shuffle(){
-        //Converts songQueue to List and shuffles
-        List<song> sList = (List) songQueue;
-        Collections.shuffle(sList);
 
-        //Clears playlist and adds shuffled songs
-        songQueue.clear();
-        for(song s: sList){
-            songQueue.add(s);
-        }
     }
     
     public abstract String getInfo();
