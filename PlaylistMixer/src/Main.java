@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args){
 
@@ -11,9 +13,18 @@ public class Main {
                 " Add to Queue:         q\n" +
                 " Skip:                 n\n" +
                 " Shuffle:              s\n" +
-                " Get song info:        i");
+                " Get song info:        i\n" +
+                " End session:          e\n");
 
+        Scanner input = new Scanner(System.in);
+        String selection = "";
+        do{
+            System.out.print("Enter selection: ");
+            selection = input.nextLine();
+            // TODO add if selection = "a"...
+        }while(selection != "e");
 
     }
+
 }
 
