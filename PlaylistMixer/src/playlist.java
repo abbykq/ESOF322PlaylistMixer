@@ -11,15 +11,15 @@ public abstract class playlist {
     private boolean isPlaying;
 
     public void addSong(song s){
-
+        // Trey 
     }
 
     public void removeSong(song s){
-
+        // Trey
     }
     
     public void playSong(String songName){
-
+        // Trey
     }
 
     public void queueSong(String songName){
@@ -44,7 +44,5 @@ public abstract class playlist {
 
     }
     
-    public String getInfo(){
-        return "";
-    }
+    public abstract String getInfo();
 }

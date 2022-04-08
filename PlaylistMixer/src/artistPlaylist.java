@@ -6,6 +6,7 @@ public class artistPlaylist extends playlist{
         artist = a;
     }
 
+    @Override
     public String getInfo(){
         return "This playlist is built based on Artist: " + artist;
     }

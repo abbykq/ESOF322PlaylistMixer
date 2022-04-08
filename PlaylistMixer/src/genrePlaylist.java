@@ -6,6 +6,7 @@ public class genrePlaylist extends playlist{
         genre = g;
     }
 
+    @Override
     public String getInfo(){
         return "This playlist is built based on Genre: " + genre;
     }
