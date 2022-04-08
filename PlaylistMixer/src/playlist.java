@@ -10,6 +10,35 @@ public abstract class playlist {
     private song currentSong;
     private boolean isPlaying;
 
+    public void addSong(song s){
+
+    }
+
+    public void removeSong(song s){
+
+    }
     
+    public void playSong(String songName){
+
+    }
+
+    public void queueSong(String songName){
+
+    }
+
+    public void togglePlayPause(){
+        isPlaying = !isPlaying;
+    }
+
+    public void skip(){
+
+    }
+
+    public void shuffle(){
+
+    }
     
+    public String getInfo(){
+        return "";
+    }
 }
