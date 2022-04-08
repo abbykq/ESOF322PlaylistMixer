@@ -1,6 +1,8 @@
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public abstract class playlist {
     //Contains methods and attributes used in all playlist subclasses
@@ -30,7 +32,7 @@ public abstract class playlist {
                 return;
             }
         }
-        System.out.println("ERROR: Didn't find song");
+        System.out.println("ERROR: Didn't find song to queue");
     }
 
     public void togglePlayPause(){
@@ -38,11 +40,26 @@ public abstract class playlist {
     }
 
     public void skip(){
+        songQueue.remove();
 
+        //If there isn't another item in queue then stop
+        if(songQueue.peek() == null){
+            isPlaying = false;
+            return;
+        }else
+            currentSong = songQueue.peek();
     }
 
     public void shuffle(){
+        //Converts songQueue to List and shuffles
+        List<song> sList = (List) songQueue;
+        Collections.shuffle(sList);
 
+        //Clears playlist and adds shuffled songs
+        songQueue.clear();
+        for(song s: sList){
+            songQueue.add(s);
+        }
     }
     
     public abstract String getInfo();
