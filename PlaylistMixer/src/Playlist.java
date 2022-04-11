@@ -2,19 +2,19 @@ import java.util.Queue;
 import java.util.LinkedList;
 import java.util.ArrayList;
 
-public abstract class playlist {
+public abstract class Playlist {
     //Contains methods and attributes used in all playlist subclasses
-    private final Queue<song> songQueue = new LinkedList<song>();
-    private final ArrayList<song> songList = new ArrayList<song>();
+    private final Queue<Song> songQueue = new LinkedList<Song>();
+    private final ArrayList<Song> songList = new ArrayList<Song>();
 
-    private song currentSong;
+    private Song currentSong;
     private boolean isPlaying;
 
-    public void addSong(song s){
+    public void addSong(Song s){
         // Trey 
     }
 
-    public void removeSong(song s){
+    public void removeSong(Song s){
         // Trey
     }
     
@@ -24,7 +24,7 @@ public abstract class playlist {
 
     public void queueSong(String songName){
         //Find song that matches songName and adds to Queue
-        for(song Song: songList){
+        for(Song Song: songList){
             if (Song.getTitle().equals(songName)){
                 songQueue.add(Song);
                 return;
