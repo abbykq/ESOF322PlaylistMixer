@@ -58,7 +58,7 @@ import java.util.Queue;
                 return;
              }
          }
-        System.out.println("Could not find song in playlist");
+        System.out.println("Could not find song \"" + currentSong.getTitle() + "\" by " + currentSong.getArtist() + " in playlist");
      }
 
      public void queueSong(String songName){
@@ -121,7 +121,6 @@ import java.util.Queue;
         sa = songList.toArray(sa);
 
         songQueue.clear(); // Clears the previous queue
-        
         
          //Converts songQueue to List and shuffles
          List<Song> sList = Arrays.asList(sa);
