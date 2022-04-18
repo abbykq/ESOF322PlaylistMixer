@@ -62,7 +62,7 @@ import java.util.Queue;
      }
 
      public void queueSong(String songName){
-        if(!isPlaying){ // If there is not a song playing, that queued song plays the queued song
+        if(!isPlaying && currentSong == null){ // If there is not a song playing, that queued song plays the queued song
             this.playSong(songName);
             return;
         }
