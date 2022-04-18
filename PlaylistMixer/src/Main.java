@@ -137,7 +137,7 @@ public class Main {
                     }
                 }
                 if(count == 0){
-                    System.out.println("Sorry, no songs by that artist were found in the database. Try adding some of your own :) ");
+                    System.out.println("Sorry, no songs by that artist were found in the database.\n Try adding some of your own :) ");
                 }
 
                 correctInput = true;
