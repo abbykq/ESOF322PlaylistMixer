@@ -74,11 +74,15 @@ import java.util.Queue;
      }
 
      public void togglePlayPause(){
-         isPlaying = !isPlaying;
-         if(isPlaying == false){
+         if(currentSong == null){
+            System.out.println("There is no song playing");
+            return;
+         }
+        isPlaying = !isPlaying;
+        if(isPlaying == false){
             System.out.println("Paused: \"" + currentSong.getTitle() + "\" by " + currentSong.getArtist());
          }
-         else{
+        else{
             System.out.println("Playing: \"" + currentSong.getTitle() + "\" by " + currentSong.getArtist());
          }
      }
