@@ -62,7 +62,11 @@ import java.util.Queue;
      }
 
      public void queueSong(String songName){
-         //Find song that matches songName and adds to Queue
+        if(!isPlaying){ // If there is not a song playing, that queued song plays the queued song
+            this.playSong(songName);
+            return;
+        }
+        //Find song that matches songName and adds to Queue
          for(Song Song: songList){
              if (Song.getTitle().equals(songName)){
                  songQueue.add(Song);
@@ -88,7 +92,7 @@ import java.util.Queue;
      }
 
      public void skip(){
-        if(isPlaying || songQueue.peek() != null){
+        if(isPlaying){
             System.out.println("No longer playing...\"" + currentSong.getTitle() + "\" by " + currentSong.getArtist());
         }
         else{
