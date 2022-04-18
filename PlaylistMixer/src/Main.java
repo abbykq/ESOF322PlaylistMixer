@@ -15,7 +15,7 @@ public class Main {
         Song Nellie = new Song("Nellie", "DrDog", "Alt/Indie");
         Song ShadowPeople = new Song("Shadow People", "DrDog", "Alt/Indie");
         Song HeartItRaces = new Song("Heart It Races", "DrDog", "Alt/Indie");
-        Song AbandonedMansion = new Song("Abandonded Mansion", "DrDog", "Alt/Indie");
+        Song AbandonedMansion = new Song("Abandoned Mansion", "DrDog", "Alt/Indie");
         // random songs
         Song AtLast = new Song("At Last", "Etta James", "Jazz");
         Song Sandstorm = new Song("Sandstorm", "Darude", "EDM");
@@ -71,7 +71,7 @@ public class Main {
     }
 
     public static void printOptions() {
-        System.out.println("""
+        System.out.print("""
                  Play/Pause:                  play or pause
                  Play Specific Song:          play song
                  Add Song to Playlist:        add
@@ -99,6 +99,7 @@ public class Main {
                 userPlaylist = new basicPlaylist();
                 correctInput = true;
             } else if (playlistType.equals("genre")) {
+                // get genre from user, look through song database to find songs with same genre, add songs to playlist
                 Scanner genreInput = new Scanner(System.in);
                 String genre;
                 ArrayList<String> genreList = new ArrayList<>(List.of("pop", "alt/indie", "jazz", "edm", "punk rock", "alt/rock", "metal", "rock", "folk", "country", "rap"));
@@ -115,8 +116,7 @@ public class Main {
                 userPlaylist = new genrePlaylist(genre);
                 List<Song> songs = songList();
                 for (Song songToCheck : songs) {
-                    Song checkGenre = (Song) songToCheck;
-                    String songGenre = checkGenre.getGenre();
+                    String songGenre = songToCheck.getGenre();
                     if (songGenre.equals(genre)) {
                         userPlaylist.addSong(songToCheck);
                     }
@@ -128,13 +128,18 @@ public class Main {
                 String artist = artistInput.nextLine();
                 userPlaylist = new artistPlaylist(artist);
                 List<Song> songs = songList();
+                int count = 0;
                 for (Song songToCheck : songs) {
-                    Song checkArtist = (Song) songToCheck;
-                    String songArtist = checkArtist.getArtist();
+                    String songArtist = songToCheck.getArtist();
                     if (songArtist.equals(artist)) {
                         userPlaylist.addSong(songToCheck);
+                        count++;
                     }
                 }
+                if(count == 0){
+                    System.out.println("Sorry, no songs by that artist were found in the database. Try adding some of your own :) ");
+                }
+
                 correctInput = true;
             } else {
                 System.out.println("Incorrect input, please try again");
@@ -146,9 +151,9 @@ public class Main {
             printOptions();
 
             Scanner input = new Scanner(System.in);
-            String selection = "";
+            String selection;
             do {
-                System.out.print("Enter selection: ");
+                System.out.print("\nEnter selection: ");
                 selection = input.nextLine();
                 selection = selection.toLowerCase();
                 System.out.println();
