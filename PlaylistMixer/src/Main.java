@@ -96,6 +96,7 @@ public class Main {
             String playlistType = playlistTypeInput.nextLine();
             playlistType = playlistType.toLowerCase();
             if (playlistType.equals("basic")) {
+                // creates an empty playlist
                 userPlaylist = new basicPlaylist();
                 correctInput = true;
             } else if (playlistType.equals("genre")) {
@@ -123,6 +124,7 @@ public class Main {
                 }
                 correctInput = true;
             } else if (playlistType.equals("artist")) {
+                // similar to genre playlist, ask for artist, add songs from database with same artist
                 Scanner artistInput = new Scanner(System.in);
                 System.out.println("What artist? ");
                 String artist = artistInput.nextLine();
@@ -137,9 +139,9 @@ public class Main {
                     }
                 }
                 if(count == 0){
-                    System.out.println("Sorry, no songs by that artist were found in the database.\n Try adding some of your own :) ");
+                    // if no songs were found
+                    System.out.println("Sorry, no songs by that artist were found in the database.\n Try adding some of your own :)");
                 }
-
                 correctInput = true;
             } else {
                 System.out.println("Incorrect input, please try again");
@@ -158,15 +160,18 @@ public class Main {
                 selection = selection.toLowerCase();
                 System.out.println();
                 if (selection.equals("play") || selection.equals("pause")) {
+                    // pauses and plays current song
                     userPlaylist.togglePlayPause();
                     System.out.println("type 'help' to print options");
                 } else if (selection.equals("play song")) {
+                    // play song that user inputs
                     Scanner toPlayInput = new Scanner(System.in);
                     System.out.print("Which song? ");
                     String toPlay = toPlayInput.nextLine();
                     userPlaylist.playSong(toPlay);
                     System.out.println("type 'help' to print options");
                 } else if (selection.equals("add")) {
+                    // adds song to playlist
                     Scanner songTitleInput = new Scanner(System.in);
                     Scanner songArtistInput = new Scanner(System.in);
                     Scanner songGenreInput = new Scanner(System.in);
@@ -180,30 +185,37 @@ public class Main {
                     userPlaylist.addSong(newSong);
                     System.out.println("Type 'help' to print options");
                 } else if (selection.equals("remove")) {
+                    // remove song from playlist
                     Scanner toRemoveInput = new Scanner(System.in);
                     System.out.print("Song to remove: ");
                     String toRemove = toRemoveInput.nextLine();
                     userPlaylist.removeSong(toRemove);
                     System.out.println("Type 'help' to print options");
                 } else if (selection.equals("queue")) {
+                    // add song to queue
                     Scanner toQueueInput = new Scanner(System.in);
                     System.out.print("Song to queue: ");
                     String toQueue = toQueueInput.nextLine();
                     userPlaylist.queueSong(toQueue);
                     System.out.println("Type 'help' to print options");
                 } else if (selection.equals("skip")) {
+                    // skip song in queue
                     userPlaylist.skip();
                     System.out.println("Type 'help' to print options");
                 } else if (selection.equals("shuffle")) {
+                    // adds the songs in playlist to the queue in random order
                     userPlaylist.shuffle();
                     System.out.println("Type 'help' to print options");
                 } else if (selection.equals("info")) {
+                    // prints playlist info
                     System.out.println(userPlaylist.getInfo());
                     System.out.println("Type 'help' to print options");
                 } else if (selection.equals("print")) {
+                    // prints all songs in playlist
                     userPlaylist.print();
                     System.out.println("Type 'help' to print options");
                 } else if (selection.equals("help")) {
+                    // prints options again
                     printOptions();
                     System.out.println("Type 'help' to print options");
                 } else if (selection.equals("end")){
