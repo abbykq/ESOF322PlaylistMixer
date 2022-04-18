@@ -70,58 +70,31 @@ public class Main {
         return songs;
     }
 
-    public static void test1(List songs) {
-        System.out.println("Basic Playlist");
-        basicPlaylist basic1 = new basicPlaylist();
-        basic1.addSong((Song) songs.get(10));
-        basic1.addSong((Song) songs.get(10));
-        //basic1.removeSong(songs.get(11).);
-
-    }
-
-    public static void test2(List songs) {
-        System.out.println("Genre Playlist");
-        genrePlaylist genre1 = new genrePlaylist("Pop");
-
-    }
-
-    public static void test3(List songs) {
-        System.out.println("Artist Playlist");
-        artistPlaylist artist1 = new artistPlaylist("DrDog");
-    }
-
     public static void printOptions() {
-        System.out.println(" " +
-                "Play/Pause:                  play or pause\n " +
-                "Play Specific Song:          play song\n " +
-                "Add Song to Playlist:        add\n" +
-                " Remove Song From Playlist:   remove\n" +
-                " Add to Queue:                queue\n" +
-                " Skip Current Song:           skip\n" +
-                " Shuffle Queue:               shuffle\n" +
-                " Get Playlist info:           info\n" +
-                " Print Playlist:              print\n" +
-                " Print Options again:         options\n" +
-                " End session:                 end\n");
+        System.out.println("""
+                 Play/Pause:                  play or pause
+                 Play Specific Song:          play song
+                 Add Song to Playlist:        add
+                 Remove Song From Playlist:   remove
+                 Add to Queue:                queue
+                 Skip Current Song:           skip
+                 Shuffle Queue:               shuffle
+                 Get Playlist info:           info
+                 Print Playlist:              print
+                 Print Options again:         help
+                 End session:                 end
+                """);
     }
 
     public static void main(String[] args) {
-
-//        List songs = songList();
-//        test1(songs);
-//        test2(songs);
-//        test3(songs);
-
+        System.out.println("Welcome to Playlist mixer");
         Playlist userPlaylist = null;
         boolean correctInput = false;
-        System.out.println("Welcome to Playlist mixer");
-
         do {
             System.out.println("What type of playlist would you like to make? Choose from Basic, Genre, Artist: ");
             Scanner playlistTypeInput = new Scanner(System.in);
             String playlistType = playlistTypeInput.nextLine();
             playlistType = playlistType.toLowerCase();
-
             if (playlistType.equals("basic")) {
                 userPlaylist = new basicPlaylist();
                 correctInput = true;
@@ -168,9 +141,7 @@ public class Main {
             }
 
         }while(!correctInput);
-
-
-            System.out.println("Choose from the options below to continue");
+            System.out.println("\nChoose from the options below to continue");
 
             printOptions();
 
@@ -180,15 +151,16 @@ public class Main {
                 System.out.print("Enter selection: ");
                 selection = input.nextLine();
                 selection = selection.toLowerCase();
+                System.out.println();
                 if (selection.equals("play") || selection.equals("pause")) {
                     userPlaylist.togglePlayPause();
-                    System.out.println("type \'help\' to print options");
+                    System.out.println("type 'help' to print options");
                 } else if (selection.equals("play song")) {
                     Scanner toPlayInput = new Scanner(System.in);
                     System.out.print("Which song? ");
                     String toPlay = toPlayInput.nextLine();
                     userPlaylist.playSong(toPlay);
-                    System.out.println("type \'help\' to print options");
+                    System.out.println("type 'help' to print options");
                 } else if (selection.equals("add")) {
                     Scanner songTitleInput = new Scanner(System.in);
                     Scanner songArtistInput = new Scanner(System.in);
@@ -201,34 +173,34 @@ public class Main {
                     String genre = songGenreInput.nextLine();
                     Song newSong = new Song(title, artistAdd, genre);
                     userPlaylist.addSong(newSong);
-                    System.out.println("Type \'help\' to print options");
+                    System.out.println("Type 'help' to print options");
                 } else if (selection.equals("remove")) {
                     Scanner toRemoveInput = new Scanner(System.in);
                     System.out.print("Song to remove: ");
                     String toRemove = toRemoveInput.nextLine();
                     userPlaylist.removeSong(toRemove);
-                    System.out.println("Type \'help\' to print options");
+                    System.out.println("Type 'help' to print options");
                 } else if (selection.equals("queue")) {
                     Scanner toQueueInput = new Scanner(System.in);
                     System.out.print("Song to queue: ");
                     String toQueue = toQueueInput.nextLine();
                     userPlaylist.queueSong(toQueue);
-                    System.out.println("Type \'help\' to print options");
+                    System.out.println("Type 'help' to print options");
                 } else if (selection.equals("skip")) {
                     userPlaylist.skip();
-                    System.out.println("Type \'help\' to print options");
+                    System.out.println("Type 'help' to print options");
                 } else if (selection.equals("shuffle")) {
                     userPlaylist.shuffle();
-                    System.out.println("Type \'help\' to print options");
+                    System.out.println("Type 'help' to print options");
                 } else if (selection.equals("info")) {
                     System.out.println(userPlaylist.getInfo());
-                    System.out.println("Type \'help\' to print options");
+                    System.out.println("Type 'help' to print options");
                 } else if (selection.equals("print")) {
                     userPlaylist.print();
-                    System.out.println("Type \'help\' to print options");
+                    System.out.println("Type 'help' to print options");
                 } else if (selection.equals("help")) {
                     printOptions();
-                    System.out.println("Type \'help\' to print options");
+                    System.out.println("Type 'help' to print options");
                 } else if (selection.equals("end")){
                     System.out.println("Thanks for using PlayMix Mixa!");
                 } else{
