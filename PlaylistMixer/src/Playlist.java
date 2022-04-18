@@ -24,18 +24,19 @@ import java.util.Queue;
 
      }
 
-     public void removeSong(Song s){
-         // Trey
-         if(songList.contains(s)){
-             songList.remove(s);
-         }
-         else{
-             System.out.println("This song is not in this playlist");
-         }
+     public void removeSong(String s){
+         for(int i = 0; i < songList.size(); i++){
+            Song iter = songList.get(i);
+            if(iter.getTitle().equals(s)){
+               System.out.println("The song \"" + iter.getTitle() + "\" by " + iter.getArtist() + " is removed from the playlist");
+               songList.remove(i);
+               break;
+            }
+            System.out.println("This song is not in your playlist");
+        }
      }
 
      public void playSong(String songName){
-         // Trey
          for(int i = 0; i < songList.size(); i++){
              Song iter = songList.get(i);
              if(iter.getTitle().equals(songName)){
