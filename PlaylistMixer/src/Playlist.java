@@ -63,8 +63,9 @@ import java.util.Queue;
          if(songQueue.peek() == null){
              isPlaying = false;
              return;
-         }else
-             currentSong = songQueue.peek();
+         }
+            
+        currentSong = songQueue.peek();
      }
 
      public void shuffle(){
