@@ -83,31 +83,56 @@ public class Main {
 
     public static void main(String[] args){
 
-        List songs = songList();
-        test1(songs);
-        test2(songs);
-        test3(songs);
+//        List songs = songList();
+//        test1(songs);
+//        test2(songs);
+//        test3(songs);
 
-//        System.out.println("Welcome to Playlist mixer");
-//        System.out.println("Choose from the options below to continue");
-//
-//        System.out.println(" " +
-//                "Play/Pause:           p\n " +
-//                "Add Song to Playlist: a\n" +
-//                " Remove Song:          r\n" +
-//                " Add to Queue:         q\n" +
-//                " Skip:                 n\n" +
-//                " Shuffle:              s\n" +
-//                " Get song info:        i\n" +
-//                " End session:          e\n");
-//
-//        Scanner input = new Scanner(System.in);
-//        String selection = "";
-//        do{
-//            System.out.print("Enter selection: ");
-//            selection = input.nextLine();
-//            // TODO add if selection = "a"...
-//        }while(selection != "e");
+        Playlist userPlaylist;
+
+        System.out.println("Welcome to Playlist mixer");
+        System.out.println("What type of playlist would you like to make? Choose from Basic, Genre, Artist: ");
+        Scanner playlistTypeInput = new Scanner(System.in);
+        String playlistType = playlistTypeInput.nextLine();
+        if(playlistType.equals("Basic")){
+            userPlaylist = new basicPlaylist();
+        }
+        if(playlistType.equals("Genre")){
+            Scanner genreInput = new Scanner(System.in);
+            System.out.println("What type of genre? ");
+            String genre= genreInput.nextLine();
+            userPlaylist = new genrePlaylist(genre);
+        }
+        if(playlistType.equals("Artist")){
+            Scanner artistInput = new Scanner(System.in);
+            System.out.println("What artist? ");
+            String artist = artistInput.nextLine();
+            userPlaylist = new artistPlaylist(artist);
+        }
+
+        System.out.println("Choose from the options below to continue");
+
+        System.out.println(" " +
+                "Play/Pause:           p\n " +
+                "Add Song to Playlist: a\n" +
+                " Remove Song:          r\n" +
+                " Add to Queue:         q\n" +
+                " Skip:                 n\n" +
+                " Shuffle:              s\n" +
+                " Get song info:        i\n" +
+                " End session:          e\n");
+
+        Scanner input = new Scanner(System.in);
+        String selection = "";
+        do{
+            System.out.print("Enter selection: ");
+            selection = input.nextLine();
+            // TODO add if selection = "a"...
+            if (selection.equals("p")){
+                System.out.println("Pausing song");
+                userPlaylist.togglePlayPause();
+            }
+        }while(selection != "e");
 
     }
 }
