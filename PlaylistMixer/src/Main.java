@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.*;
 public class Main {
 
-    // LIST OF SONGS
+    // SAMPLE SONG DATABASE
     public static List songList(){
         // for genre playlist Pop
         Song Good4You= new Song("good 4 you", "Olivia Rodrigo", "Pop");
@@ -66,7 +66,7 @@ public class Main {
         basicPlaylist basic1 = new basicPlaylist();
         basic1.addSong((Song) songs.get(10));
         basic1.addSong((Song) songs.get(10));
-        basic1.removeSong((Song) songs.get(11));
+        //basic1.removeSong(songs.get(11).);
 
     }
 
@@ -81,6 +81,20 @@ public class Main {
         artistPlaylist artist1 = new artistPlaylist("DrDog");
     }
 
+    public static void printOptions(){
+        System.out.println(" " +
+                "Play/Pause:                  play or pause\n " +
+                "Play Specific Song:          play song\n " +
+                "Add Song to Playlist:        add\n" +
+                " Remove Song From Playlist:   remove\n" +
+                " Add to Queue:                queue\n" +
+                " Skip Current Song:           skip\n" +
+                " Shuffle Queue:               shuffle\n" +
+                " Get song info:               info\n" +
+                " Print Playlist:              print\n" +
+                " Print Options again:         options\n" +
+                " End session:                 end\n");
+    }
     public static void main(String[] args){
 
 //        List songs = songList();
@@ -102,6 +116,11 @@ public class Main {
             System.out.println("What type of genre? ");
             String genre= genreInput.nextLine();
             userPlaylist = new genrePlaylist(genre);
+            List songs = songList();
+            for (int i = 0; i < songs.size() ; i++ ){
+                System.out.println();
+            }
+
         }
         if(playlistType.equals("Artist")){
             Scanner artistInput = new Scanner(System.in);
@@ -112,15 +131,7 @@ public class Main {
 
         System.out.println("Choose from the options below to continue");
 
-        System.out.println(" " +
-                "Play/Pause:           p\n " +
-                "Add Song to Playlist: a\n" +
-                " Remove Song:          r\n" +
-                " Add to Queue:         q\n" +
-                " Skip:                 n\n" +
-                " Shuffle:              s\n" +
-                " Get song info:        i\n" +
-                " End session:          e\n");
+        printOptions();
 
         Scanner input = new Scanner(System.in);
         String selection = "";
@@ -128,12 +139,54 @@ public class Main {
             System.out.print("Enter selection: ");
             selection = input.nextLine();
             // TODO add if selection = "a"...
-            if (selection.equals("p")){
-                System.out.println("Pausing song");
+            if (selection.equals("play") || selection.equals("pause")){
                 userPlaylist.togglePlayPause();
             }
-        }while(selection != "e");
+            else if (selection.equals("play song")){
+                Scanner toPlayInput = new Scanner(System.in);
+                System.out.print("Which song? ");
+                String toPlay = toPlayInput.nextLine();
+                userPlaylist.playSong(toPlay);
+            }
+            else if (selection.equals("add")){
+                Scanner songTitleInput = new Scanner(System.in);
+                Scanner songArtistInput = new Scanner(System.in);
+                Scanner songGenreInput = new Scanner(System.in);
+                System.out.print("Title of song: ");
+                String title = songTitleInput.nextLine();
+                System.out.print("Artist of song: ");
+                String artist = songArtistInput.nextLine();
+                System.out.print("Genre of song: ");
+                String genre = songGenreInput.nextLine();
+                Song newSong = new Song(title, artist, genre);
+                userPlaylist.addSong(newSong);
+            }
+            else if (selection.equals("remove")){
+                Scanner toRemoveInput = new Scanner(System.in);
+                String toRemove = toRemoveInput.nextLine();
+                userPlaylist.removeSong(toRemove);
+            }
+            else if (selection.equals("queue")){
 
+            }
+            else if (selection.equals("skip")){
+                userPlaylist.skip();
+            }
+            else if (selection.equals("shuffle")){
+                userPlaylist.shuffle();
+            }
+            else if (selection.equals("info")){
+
+            }
+            else if (selection.equals("print")){
+                userPlaylist.print();
+            }
+            else if (selection.equals("options")){
+                printOptions();
+            }
+        }while(!selection.equals("end"));
+
+        System.exit(0);
     }
 }
 
