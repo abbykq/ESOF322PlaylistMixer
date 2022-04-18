@@ -78,7 +78,7 @@ import java.util.Queue;
      }
 
      public void togglePlayPause(){
-         if(currentSong == null){
+        if(currentSong == null){
             System.out.println("There is no song playing");
             return;
          }
@@ -94,6 +94,7 @@ import java.util.Queue;
      public void skip(){
         if(isPlaying){
             System.out.println("No longer playing...\"" + currentSong.getTitle() + "\" by " + currentSong.getArtist());
+            isPlaying = false;
         }
         else{
             System.out.println("There is no song playing!");
@@ -110,6 +111,7 @@ import java.util.Queue;
          //If there isn't another item in queue then stop
 
         System.out.println("Now playing...\"" + currentSong.getTitle() + "\" by " + currentSong.getArtist());
+        isPlaying = true;
      }
 
      public void shuffle(){
