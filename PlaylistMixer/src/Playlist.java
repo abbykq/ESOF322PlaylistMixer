@@ -58,7 +58,7 @@ import java.util.Queue;
                 return;
              }
          }
-        System.out.println("Could not find song \"" + currentSong.getTitle() + "\" by " + currentSong.getArtist() + " in playlist");
+        System.out.println("Could not find song \"" + songName + "\" in playlist");
      }
 
      public void queueSong(String songName){
