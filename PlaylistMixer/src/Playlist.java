@@ -131,7 +131,7 @@ import java.util.Queue;
          for(Song s: sList){
              songQueue.add(s);
          }
-         this.skip();
+         this.playSong(songQueue.remove().getTitle());
      }
 
      public abstract String getInfo();
