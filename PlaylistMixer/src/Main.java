@@ -88,7 +88,7 @@ public class Main {
 //        test2(songs);
 //        test3(songs);
 
-        Playlist userPlaylist;
+        Playlist userPlaylist = null;
 
         System.out.println("Welcome to Playlist mixer");
         System.out.println("What type of playlist would you like to make? Choose from Basic, Genre, Artist: ");
