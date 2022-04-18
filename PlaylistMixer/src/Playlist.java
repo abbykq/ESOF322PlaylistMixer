@@ -16,7 +16,7 @@ import java.util.Queue;
      public void addSong(Song s){
          // Trey 
          if(songList.contains(s)){
-             System.out.println("The song is already in the playlist");
+             System.out.println("The song, \"" + s.getGenre() + "\", is already in the playlist");
          }
          else{
              songList.add(s);
@@ -37,6 +37,12 @@ import java.util.Queue;
      public void playSong(String songName){
          // Trey
          for(int i = 0; i < songList.size(); i++){
+             Song iter = songList.get(i);
+             if(iter.getTitle().equals(songName)){
+                System.out.println("The song \"" + iter.getTitle() + "\" by " + iter.getArtist() + " is now playing");
+                currentSong = iter;
+                break;
+             }
 
          }
      }
