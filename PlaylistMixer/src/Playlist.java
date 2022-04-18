@@ -88,7 +88,7 @@ import java.util.Queue;
      }
 
      public void skip(){
-        if(isPlaying){
+        if(isPlaying || songQueue.peek() != null){
             System.out.println("No longer playing...\"" + currentSong.getTitle() + "\" by " + currentSong.getArtist());
         }
         else{
