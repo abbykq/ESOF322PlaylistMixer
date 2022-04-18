@@ -70,7 +70,7 @@ import java.util.Queue;
          for(Song Song: songList){
              if (Song.getTitle().equals(songName)){
                  songQueue.add(Song);
-                 System.out.println("The song has been added to the queue");
+                 System.out.println("The song \"" + currentSong.getTitle() + "\" by " + currentSong.getArtist() + " has been added to the queue.");
                  return;
              }
          }
@@ -103,6 +103,7 @@ import java.util.Queue;
 
         if(songQueue.isEmpty()){
             System.out.println("Your queue is empty!");
+            currentSong = null;
             isPlaying = false;
             return;
         } 
