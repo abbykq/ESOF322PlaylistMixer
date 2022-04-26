@@ -52,7 +52,7 @@ import java.util.Queue;
          for(int i = 0; i < songList.size(); i++){
              Song iter = songList.get(i);
              if(iter.getTitle().equals(songName)){
-                System.out.println("The song \"" + iter.getTitle() + "\" by " + iter.getArtist() + " is now playing");
+                System.out.println("♫ The song \"" + iter.getTitle() + "\" by " + iter.getArtist() + " is now playing ♫");
                 currentSong = iter;
                 isPlaying = true;
                 return;
@@ -87,7 +87,7 @@ import java.util.Queue;
             System.out.println("Paused: \"" + currentSong.getTitle() + "\" by " + currentSong.getArtist());
          }
         else{
-            System.out.println("Playing: \"" + currentSong.getTitle() + "\" by " + currentSong.getArtist());
+            System.out.println("♫ Playing: \"" + currentSong.getTitle() + "\" by " + currentSong.getArtist()+ " ♫" );
          }
      }
 
@@ -111,7 +111,7 @@ import java.util.Queue;
 
          //If there isn't another item in queue then stop
 
-        System.out.println("Now playing...\"" + currentSong.getTitle() + "\" by " + currentSong.getArtist());
+        System.out.println("♫ Now playing...\"" + currentSong.getTitle() + "\" by " + currentSong.getArtist() + " ♫");
         isPlaying = true;
      }
 
